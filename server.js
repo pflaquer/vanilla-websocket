@@ -9,6 +9,7 @@ wss.on('connection', (ws) => {
 
   ws.on('message', (message) => {
     console.log('Client message:', message);
+    ws.send('Hello from the server!');
     // Process or broadcast the message as needed
   });
 
