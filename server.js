@@ -1,6 +1,6 @@
 const http = require('http');
 const WebSocket = require('ws');
-
+let port = 8082;
 const server = http.createServer();
 const wss = new WebSocket.Server({ server });
 
@@ -17,8 +17,8 @@ wss.on('connection', (ws) => {
   // ws.send('Hello from the server!');
 });
 
-server.listen(8081, () => {
-  console.log('Server listening on port 8080');
+server.listen(port, () => {
+  console.log(`Server listening on ${port}`);
 });
 
 
