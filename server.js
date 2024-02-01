@@ -1,4 +1,37 @@
-const http = require('node:http');
+const http = require('http');
+const WebSocket = require('ws');
+
+const server = http.createServer();
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Client connected!');
+
+  ws.on('message', (message) => {
+    console.log('Client message:', message);
+    // Process or broadcast the message as needed
+  });
+
+  // Optionally, send messages from the server to the client
+  // ws.send('Hello from the server!');
+});
+
+server.listen(8080, () => {
+  console.log('Server listening on port 8080');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/*const http = require('node:http');
 const hostname = '127.0.0.1';
 const port = 4000;
 const WebSocket = require('ws');
@@ -43,4 +76,5 @@ socket.on('request', function(request) {
         console.log('connection closed');
     });
     */
-});
+//});
+
